@@ -1,0 +1,62 @@
+/* General page layout using CSS Grid */
+body {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Sections */
+header {
+    grid-area: header;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+.header-content {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Navigation bar using Flexbox */
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: #000;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    grid-area: main;
+    background-color: #ccc;
+    padding: 1rem;
+}
+
+aside {
+    grid-area: aside;
+    background-color: #f4f4f4;
+    padding: 1rem;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
