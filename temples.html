@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Album – Gaylord Ndenga</title>
+    <meta name="description"
+        content="Temple Album project page for WDD 131 by Gaylord Ndenga. Responsive gallery of temples with captions, navigation, and footer.">
+    <meta name="author" content="Gaylord Ndenga">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/temples.css">
+    <link rel="stylesheet" href="styles/temples-large.css">
+
+    <!-- JS -->
+    <script defer src="scripts/temples.js"></script>
+
+    <style>
+        :root {
+            --theme-color: #0d47a1;
+            --text-light: #fff;
+        }
+
+        .site-header {
+            background-color: var(--theme-color);
+            color: var(--text-light);
+        }
+
+        .site-header a {
+            color: var(--text-light);
+        }
+
+        .site-footer {
+            background-color: var(--theme-color);
+            color: var(--text-light);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner container">
+            <h1 class="brand">Temple Album</h1>
+
+            <!-- Hamburger for mobile -->
+            <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="main-nav"
+                aria-label="Open navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+
+            <!-- Navigation -->
+            <nav id="main-nav" class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Old</a></li>
+                    <li><a href="#">New</a></li>
+                    <li><a href="#">Large</a></li>
+                    <li><a href="#">Small</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <h2>Home</h2>
+
+        <section class="gallery" aria-label="Temple gallery">
+            <!-- Repeat for 9 figures -->
+            <figure>
+                <img src="images/idaho.jpeg" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Idaho Falls Idaho Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/hawaii.jpg" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Laie Hawaii Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/salt.jpeg" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Salt Lake Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/tokyo.webp" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Tokyo Japan Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/australia.jpeg" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Sydney Australia Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/nairobi.jpg" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Nairobi Kenya Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/dc.jpeg" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Washington D.C. Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/utah.jpeg" alt="San Diego California Temple" loading="lazy">
+                <figcaption>St. George Utah Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/accra.webp" alt="San Diego California Temple" loading="lazy">
+                <figcaption>Accra Ghana Temple</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> | Gaylord Ndenga | Kenya</p>
+        <p id="last-modified"></p>
+    </footer>
+</body>
+
+</html>
