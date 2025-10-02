@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenya - The Pride of Africa</title>
+  <link rel="stylesheet" href="styles/place.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <img src="images/kenyaflag.jfif" alt="Kenya Flag" class="flag flag-header">
+      <h1>Kenya</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#geography">Geography</a></li>
+        <li><a href="#culture">Culture</a></li>
+        <li><a href="#attractions">Attractions</a></li>
+        <li><a href="#weather">Weather</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <picture>
+        <!-- WebP for performance -->
+        <source media="(min-width: 768px)"
+          srcset="https://images.unsplash.com/photo-1516426122078-c23e76319801?fm=webp&w=1200&h=800&q=80">
+        <source media="(max-width: 767px)"
+          srcset="https://images.unsplash.com/photo-1516426122078-c23e76319801?fm=webp&w=600&h=400&q=80">
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&w=600&h=400&q=80"
+          alt="Wildebeest migration in Maasai Mara, Kenya">
+      </picture>
+      <div class="hero-content">
+        <h2>The Pride of Africa</h2>
+        <p>Home to breathtaking landscapes, diverse wildlife, and rich cultural heritage</p>
+      </div>
+    </section>
+
+    <!-- Existing sections (Geography, Culture, Attractions, Weather) remain unchanged -->
+    <!-- Geography Section -->
+    <section id="geography" class="content-section">
+      <h2>Geography & Landscape</h2>
+      <div class="content-grid">
+        <div class="text-content">
+          <p>Kenya is located in East Africa, bordered by Tanzania, Uganda, South Sudan, Ethiopia, and Somalia. The country
+            features diverse geographical regions including:</p>
+          <p><strong>The Great Rift Valley:</strong> A massive geological trench running through Kenya from north to south,
+            featuring lakes, volcanoes, and hot springs.</p>
+          <p><strong>Mount Kenya:</strong> Africa's second-highest mountain at 5,199 meters, an ancient extinct volcano and
+            UNESCO World Heritage Site.</p>
+          <p><strong>Coastal Region:</strong> Beautiful Indian Ocean coastline with white sand beaches, coral reefs, and
+            historic Swahili settlements.</p>
+          <p><strong>Savannah Plains:</strong> Vast grasslands that host the world-famous Maasai Mara and other wildlife
+            reserves.</p>
+        </div>
+        <div class="image-content">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=600&h=400&q=80"
+            alt="Mount Kenya landscape with dramatic peaks">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Culture Section -->
+    <section id="culture" class="content-section">
+      <h2>Culture & People</h2>
+      <div class="content-grid reverse">
+        <div class="text-content">
+          <p>Kenya is a cultural melting pot with over 40 different ethnic groups, each with unique traditions, languages,
+            and customs.</p>
+          <p><strong>Major Ethnic Groups:</strong> Kikuyu, Luhya, Luo, Kalenjin, Kamba, Kisii, Meru, and the Maasai known
+            for their distinctive red shukas and pastoral traditions.</p>
+          <p><strong>Swahili Culture:</strong> Along the coast, the Swahili people have developed a unique blend of African,
+            Arab, and Persian influences evident in architecture, cuisine, and language.</p>
+          <p><strong>National Languages:</strong> Swahili (Kiswahili) and English are the official languages, with numerous
+            indigenous languages spoken throughout the country.</p>
+          <p><strong>Traditional Foods:</strong> Nyama Choma, Ugali, Sukuma Wiki, and Chapati are staple dishes enjoyed
+            nationwide.</p>
+        </div>
+        <div class="image-content">
+          <img src="images/maasaai.jpg"
+            alt="Maasai tribespeople in traditional dress">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Attractions Section -->
+    <section id="attractions" class="content-section">
+      <h2>Top Attractions</h2>
+      <div class="attractions-grid">
+        <div class="attraction-card">
+          <h3>Maasai Mara National Reserve</h3>
+          <p>World-famous for the Great Migration where millions of wildebeest, zebras, and gazelles cross the Mara River.
+          </p>
+        </div>
+        <div class="attraction-card">
+          <h3>Amboseli National Park</h3>
+          <p>Famous for its large elephant herds and spectacular views of Mount Kilimanjaro.</p>
+        </div>
+        <div class="attraction-card">
+          <h3>Diani Beach</h3>
+          <p>Pristine white sands, turquoise waters, and excellent opportunities for water sports.</p>
+        </div>
+        <div class="attraction-card">
+          <h3>Lake Nakuru National Park</h3>
+          <p>Birdwatcher's paradise, famous for flamingo populations, and home to both black and white rhinos.</p>
+        </div>
+        <div class="attraction-card">
+          <h3>Kakamega Forest Reserve</h3>
+          <p>Kenya's only tropical rainforest, a biodiversity hotspot with unique flora and fauna including 400+ bird species,
+            rare monkeys, and countless butterfly species.</p>
+        </div>
+        <div class="attraction-card">
+          <h3>Tsavo National Parks</h3>
+          <p>One of the world's largest game reserves, known for red elephants and diverse landscapes.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Weather Section -->
+    <section id="weather" class="content-section">
+      <h2>Weather & Climate</h2>
+      <div class="weather-info">
+        <div class="current-weather">
+          <div class="weather-icon">
+            <!-- SVG visible only on small screens -->
+            <svg class="mobile-only" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="20" fill="#FFD700" />
+              <path d="M32 12V52" stroke="#FF8C00" stroke-width="3" />
+              <path d="M12 32H52" stroke="#FF8C00" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="weather-details">
+            <p>Temperature: <span id="temperature">25</span>°C</p>
+            <p>Conditions: Sunny</p>
+            <p>Wind Speed: <span id="wind-speed">12</span> km/h</p>
+            <p>Wind Chill: <span id="wind-chill">N/A</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <img src="images/kenyaflag.jfif" alt="Kenya Flag" class="flag flag-footer">
+      &copy; <span id="current-year"></span> | Explore Kenya - Jewel of East Africa
+    </p>
+    <p>Last Modified: <span id="last-modified"></span></p>
+  </footer>
+
+  <script src="scripts/place.js"></script>
+</body>
+
+</html>

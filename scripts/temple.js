@@ -1,11 +1,24 @@
 // temples.js
 document.addEventListener("DOMContentLoaded", () => {
+    // Footer year + last modified
     const yearEl = document.getElementById("year");
     const lastEl = document.getElementById("last-modified");
 
     if (yearEl) yearEl.textContent = new Date().getFullYear();
-    if (lastEl) lastEl.textContent = "Last modified: " + document.lastModified;
 
+    if (lastEl) {
+        const lastModified = new Date(document.lastModified);
+        const options = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        };
+        lastEl.textContent = "Last Modified: " + lastModified.toLocaleString("en-US", options);
+    }
+
+    // Hamburger menu
     const hamburger = document.getElementById("hamburger");
     const nav = document.getElementById("main-nav");
 
