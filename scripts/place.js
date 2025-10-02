@@ -1,19 +1,47 @@
-// Footer updates
-document.getElementById("current-year").textContent = new Date().getFullYear();
-document.getElementById("last-modified").textContent = document.lastModified;
+// ================================
+// Wind Chill Calculation + Footer
+// ================================
 
-// Wind Chill Function (1 line of code, °C version)
-const calculateWindChill = (t, v) => (13.12 + 0.6215 * t - 11.37 * Math.pow(v, 0.16) + 0.3965 * t * Math.pow(v, 0.16)).toFixed(1);
+function calculateWindChill(tempC, windKmh) {
+  // Formula only applies if temp <= 10°C and wind > 4.8 km/h
+  if (tempC <= 10 && windKmh > 4.8) {
+    // Convert °C to °F
+    const tempF = (tempC * 9/5) + 32;
+    // Convert km/h to mph
+    const windMph = windKmh / 1.609;
+    // Wind chill formula (°F)
+    const chillF = 35.74 + (0.6215 * tempF) - (35.75 * Math.pow(windMph, 0.16)) + (0.4275 * tempF * Math.pow(windMph, 0.16));
+    // Convert back to °C
+    const chillC = (chillF - 32) * 5/9;
+    return chillC.toFixed(1);
+  } else {
+    return "N/A";
+  }
+}
 
-// Apply wind chill only if conditions met
 document.addEventListener("DOMContentLoaded", () => {
-    const temp = parseFloat(document.getElementById("temperature").textContent);
-    const wind = parseFloat(document.getElementById("wind-speed").textContent);
-    const chillEl = document.getElementById("wind-chill");
+  // Wind chill
+  const tempElement = document.getElementById("temperature");
+  const windElement = document.getElementById("wind-speed");
+  const chillElement = document.getElementById("wind-chill");
 
-    if (temp <= 10 && wind > 4.8) {
-        chillEl.textContent = `${calculateWindChill(temp, wind)}°C`;
-    } else {
-        chillEl.textContent = "N/A";
-    }
+  if (tempElement && windElement && chillElement) {
+    const tempC = parseFloat(tempElement.textContent);
+    const windKmh = parseFloat(windElement.textContent);
+
+    const chill = calculateWindChill(tempC, windKmh);
+    chillElement.textContent = chill;
+  }
+
+  // Footer current year
+  const yearElement = document.getElementById("current-year");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // Footer last modified
+  const modifiedElement = document.getElementById("last-modified");
+  if (modifiedElement) {
+    modifiedElement.textContent = document.lastModified;
+  }
 });
