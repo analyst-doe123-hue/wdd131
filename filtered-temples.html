@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Temple Album – Gaylord Ndenga</title>
+    <meta name="description"
+        content="Enhanced Temple Album with filtering capabilities for WDD 131 by Gaylord Ndenga. Responsive gallery of temples with filtering, navigation, and footer.">
+    <meta name="author" content="Gaylord Ndenga">
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner container">
+            <h1 class="brand">Temple Album</h1>
+
+            <!-- Hamburger for mobile -->
+            <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="main-nav"
+                aria-label="Open navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+
+            <!-- Navigation -->
+            <nav id="main-nav" class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="#" data-filter="home">Home</a></li>
+                    <li><a href="#" data-filter="old">Old</a></li>
+                    <li><a href="#" data-filter="new">New</a></li>
+                    <li><a href="#" data-filter="large">Large</a></li>
+                    <li><a href="#" data-filter="small">Small</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <h2 id="page-title">Home</h2>
+
+        <section class="gallery" aria-label="Temple gallery" id="temple-gallery">
+            <!-- Temple cards will be dynamically generated here -->
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> | Gaylord Ndenga | Kenya</p>
+        <p id="last-modified"></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="scripts/filtered-temples.js" defer></script>
+</body>
+
+</html>
