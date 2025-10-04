@@ -1,0 +1,52 @@
+/* filtered-temples-large.css */
+
+@media (min-width: 800px) {
+    .hamburger {
+        display: none;
+    }
+
+    .main-nav {
+        display: block;
+    }
+
+    .main-nav ul {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .main-nav a {
+        padding: 0.5rem 1rem;
+        color: #fff;
+        font-weight: 500;
+        background: transparent;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+
+    .main-content {
+        padding: 2rem 0;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .container {
+        padding: 1.25rem;
+    }
+}
+
+@media (min-width: 1100px) {
+    :root {
+        --maxw: 1100px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

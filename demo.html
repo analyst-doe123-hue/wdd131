@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Temple Album – Gaylord Ndenga</title>
+    <meta name="description" content="Enhanced Temple Album with filtering capabilities for WDD 131 by Gaylord Ndenga. Responsive gallery of temples with filtering, navigation, and footer.">
+    <meta name="author" content="Gaylord Ndenga">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg: #f7f5f2;
+            --card: #ffffff;
+            --accent: #0d47a1;
+            --muted: #666;
+            --maxw: 960px;
+            --gap: 1rem;
+            --theme-color: #0d47a1;
+            --text-light: #fff;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: var(--bg);
+            color: #111;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: var(--theme-color);
+            color: var(--text-light);
+            padding: 0.75rem 1rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Navigation - hidden on mobile until hamburger opens */
+        .main-nav {
+            display: none;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            text-decoration: none;
+            border-radius: 6px;
+            color: var(--accent);
+            background: #fff;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus {
+            background: rgba(13, 71, 161, 0.1);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            background: none;
+            border: 0;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .hamburger .hamburger-box {
+            display: inline-block;
+            width: 28px;
+            height: 18px;
+            position: relative;
+        }
+
+        .hamburger .hamburger-inner,
+        .hamburger .hamburger-inner::before,
+        .hamburger .hamburger-inner::after {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            display: block;
+            position: absolute;
+            left: 0;
+            transition: transform .25s ease, opacity .2s ease;
+        }
+
+        .hamburger .hamburger-inner {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger .hamburger-inner::before {
+            content: "";
+            top: -8px;
+        }
+
+        .hamburger .hamburger-inner::after {
+            content: "";
+            bottom: -8px;
+        }
+
+        .hamburger[aria-expanded="true"] .hamburger-inner {
+            transform: rotate(45deg);
+        }
+
+        .hamburger[aria-expanded="true"] .hamburger-inner::before {
+            transform: rotate(90deg);
+            top: 0;
+        }
+
+        .hamburger[aria-expanded="true"] .hamburger-inner::after {
+            opacity: 0;
+        }
+
+        /* When nav is open */
+        .main-nav.open {
+            display: block;
+            background: var(--card);
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .main-nav.open ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        /* Main content */
+        .main-content {
+            padding: 1rem 0;
+        }
+
+        .main-content h2 {
+            margin-top: 0;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--gap);
+        }
+
+        .gallery figure {
+            background: var(--card);
+            border-radius: 8px;
+            padding: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            margin: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery figure:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-radius: 6px;
+        }
+
+        .gallery figcaption {
+            padding: 0.75rem 0.5rem 0.5rem;
+            text-align: center;
+        }
+
+        .temple-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .temple-details {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        .temple-details p {
+            margin: 0.25rem 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--theme-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 800px) {
+            /* Hide hamburger, show nav inline */
+            .hamburger {
+                display: none;
+            }
+
+            .main-nav {
+                display: block;
+            }
+
+            .main-nav ul {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .main-nav a {
+                padding: 0.5rem 1rem;
+                color: #fff;
+                font-weight: 500;
+                background: transparent;
+            }
+
+            .main-nav a:hover,
+            .main-nav a:focus {
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 4px;
+            }
+
+            /* Layout: center main column and allow multiple grid columns */
+            .main-content {
+                padding: 2rem 0;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            /* Make container a little roomier */
+            .container {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1100px) {
+            :root {
+                --maxw: 1100px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner container">
+            <h1 class="brand">Temple Album</h1>
+
+            <!-- Hamburger for mobile -->
+            <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="main-nav"
+                aria-label="Open navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+
+            <!-- Navigation -->
+            <nav id="main-nav" class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="#" data-filter="home">Home</a></li>
+                    <li><a href="#" data-filter="old">Old</a></li>
+                    <li><a href="#" data-filter="new">New</a></li>
+                    <li><a href="#" data-filter="large">Large</a></li>
+                    <li><a href="#" data-filter="small">Small</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <h2 id="page-title">Home</h2>
+
+        <section class="gallery" aria-label="Temple gallery" id="temple-gallery">
+            <!-- Temple cards will be dynamically generated here -->
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> | Gaylord Ndenga | Kenya</p>
+        <p id="last-modified"></p>
+    </footer>
+
+    <script>
+        // Array of Temple Objects
+        const temples = [
+            {
+                templeName: "Aba Nigeria",
+                location: "Aba, Nigeria",
+                dedicated: "2005, August, 7",
+                area: 11500,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg"
+            },
+            {
+                templeName: "Manti Utah",
+                location: "Manti, Utah, United States",
+                dedicated: "1888, May, 21",
+                area: 74792,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
+            },
+            {
+                templeName: "Payson Utah",
+                location: "Payson, Utah, United States",
+                dedicated: "2015, June, 7",
+                area: 96630,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
+            },
+            {
+                templeName: "Yigo Guam",
+                location: "Yigo, Guam",
+                dedicated: "2020, May, 2",
+                area: 6861,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg"
+            },
+            {
+                templeName: "Washington D.C.",
+                location: "Kensington, Maryland, United States",
+                dedicated: "1974, November, 19",
+                area: 156558,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg"
+            },
+            {
+                templeName: "Lima Perú",
+                location: "Lima, Perú",
+                dedicated: "1986, January, 10",
+                area: 9600,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
+            },
+            {
+                templeName: "Mexico City Mexico",
+                location: "Mexico City, Mexico",
+                dedicated: "1983, December, 2",
+                area: 116642,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
+            },
+            // Additional temple objects
+            {
+                templeName: "Salt Lake Temple",
+                location: "Salt Lake City, Utah, United States",
+                dedicated: "1893, April, 6",
+                area: 253000,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-37762.jpg"
+            },
+            {
+                templeName: "Nairobi Kenya",
+                location: "Nairobi, Kenya",
+                dedicated: "2024, April, 21",
+                area: 12000,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/nairobi-kenya/400x250/nairobi-kenya-temple-lds-500970-wallpaper.jpg"
+            },
+            {
+                templeName: "Rome Italy",
+                location: "Rome, Italy",
+                dedicated: "2019, March, 10",
+                area: 41010,
+                imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/rome-italy/400x250/rome-italy-temple-lds-1079997-wallpaper.jpg"
+            }
+        ];
+
+        // DOM Elements
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('main-nav');
+        const templeGallery = document.getElementById('temple-gallery');
+        const pageTitle = document.getElementById('page-title');
+        const yearSpan = document.getElementById('year');
+        const lastModified = document.getElementById('last-modified');
+
+        // Initialize the page
+        function init() {
+            // Set footer information
+            yearSpan.textContent = new Date().getFullYear();
+            lastModified.textContent = `Last Modified: ${document.lastModified}`;
+            
+            // Set up hamburger menu
+            hamburger.addEventListener('click', toggleMenu);
+            
+            // Set up navigation event listeners
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleFilter);
+            });
+            
+            // Display all temples initially
+            displayTemples(temples);
+        }
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+            mainNav.classList.toggle('open');
+        }
+
+        // Handle filter selection
+        function handleFilter(event) {
+            event.preventDefault();
+            const filter = event.target.getAttribute('data-filter');
+            
+            // Update page title
+            pageTitle.textContent = getPageTitle(filter);
+            
+            // Filter temples based on selection
+            let filteredTemples = [];
+            
+            switch(filter) {
+                case 'old':
+                    filteredTemples = temples.filter(temple => {
+                        const year = parseInt(temple.dedicated.split(',')[0]);
+                        return year < 1900;
+                    });
+                    break;
+                case 'new':
+                    filteredTemples = temples.filter(temple => {
+                        const year = parseInt(temple.dedicated.split(',')[0]);
+                        return year > 2000;
+                    });
+                    break;
+                case 'large':
+                    filteredTemples = temples.filter(temple => temple.area > 90000);
+                    break;
+                case 'small':
+                    filteredTemples = temples.filter(temple => temple.area < 10000);
+                    break;
+                case 'home':
+                default:
+                    filteredTemples = temples;
+                    break;
+            }
+            
+            // Display filtered temples
+            displayTemples(filteredTemples);
+            
+            // Close mobile menu if open
+            if (mainNav.classList.contains('open')) {
+                toggleMenu();
+            }
+        }
+
+        // Get page title based on filter
+        function getPageTitle(filter) {
+            switch(filter) {
+                case 'old': return 'Old Temples (Before 1900)';
+                case 'new': return 'New Temples (After 2000)';
+                case 'large': return 'Large Temples (>90,000 sq ft)';
+                case 'small': return 'Small Temples (<10,000 sq ft)';
+                case 'home': 
+                default: return 'Home';
+            }
+        }
+
+        // Display temples in the gallery
+        function displayTemples(templesArray) {
+            // Clear existing content
+            templeGallery.innerHTML = '';
+            
+            // Create temple cards
+            templesArray.forEach(temple => {
+                const figure = document.createElement('figure');
+                
+                figure.innerHTML = `
+                    <img src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy">
+                    <figcaption>
+                        <div class="temple-name">${temple.templeName}</div>
+                        <div class="temple-details">
+                            <p><strong>Location:</strong> ${temple.location}</p>
+                            <p><strong>Dedicated:</strong> ${temple.dedicated}</p>
+                            <p><strong>Area:</strong> ${temple.area.toLocaleString()} sq ft</p>
+                        </div>
+                    </figcaption>
+                `;
+                
+                templeGallery.appendChild(figure);
+            });
+        }
+
+        // Initialize the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
