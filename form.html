@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Submit a product review to help others make informed purchasing decisions">
+    <title>Product Review Form | Share Your Experience</title>
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <h1>Product Review Form</h1>
+        <p class="subtitle">Share your experience with others</p>
+
+    <main class="container" role="main">
+        <form id="reviewForm" method="get" action="review.html" novalidate>
+            <fieldset>
+                <legend>Product Details</legend>
+
+                <div class="form-group">
+                    <label for="product">Product <span class="required" aria-hidden="true">*</span>
+                        <span class="sr-only">Required field</span>
+                        <select id="product" name="product" required aria-required="true"
+                            aria-describedby="product-help">
+                            <option value="" disabled selected>Select a Product ...</option>
+                            <!-- options populated by js -->
+                        </select>
+                    </label>
+                    <p id="product-help" class="hint">Choose the product you're reviewing</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="installDate">Date of Installation <span class="required" aria-hidden="true">*</span>
+                        <span class="sr-only">Required field</span>
+                        <input type="date" id="installDate" name="installDate" required aria-required="true"
+                            aria-describedby="date-help">
+                    </label>
+                    <p id="date-help" class="hint">When did you install this product?</p>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Overall Rating <span class="required" aria-hidden="true">*</span>
+                    <span class="sr-only">Required field</span>
+                </legend>
+                <p class="hint" id="rating-help">Choose a rating (1 = worst, 5 = best)</p>
+                <div class="rating" role="radiogroup" aria-labelledby="rating-help">
+                    <label class="star" for="r1">
+                        <input type="radio" id="r1" name="rating" value="1" required aria-required="true">
+                        <span class="star-icon" aria-hidden="true">☆</span>
+                        <span class="sr-only">1 star</span>
+                    </label>
+                    <label class="star" for="r2">
+                        <input type="radio" id="r2" name="rating" value="2">
+                        <span class="star-icon" aria-hidden="true">☆</span>
+                        <span class="sr-only">2 stars</span>
+                    </label>
+                    <label class="star" for="r3">
+                        <input type="radio" id="r3" name="rating" value="3">
+                        <span class="star-icon" aria-hidden="true">☆</span>
+                        <span class="sr-only">3 stars</span>
+                    </label>
+                    <label class="star" for="r4">
+                        <input type="radio" id="r4" name="rating" value="4">
+                        <span class="star-icon" aria-hidden="true">☆</span>
+                        <span class="sr-only">4 stars</span>
+                    </label>
+                    <label class="star" for="r5">
+                        <input type="radio" id="r5" name="rating" value="5">
+                        <span class="star-icon" aria-hidden="true">☆</span>
+                        <span class="sr-only">5 stars</span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Useful Features</legend>
+                <p class="hint" id="features-help">Check all that apply</p>
+
+                <div class="checkbox-group">
+                    <label for="feature-ease">
+                        <input type="checkbox" id="feature-ease" name="features" value="ease"
+                            aria-describedby="features-help">
+                        Easy to use
+                    </label>
+                    <label for="feature-speed">
+                        <input type="checkbox" id="feature-speed" name="features" value="speed"
+                            aria-describedby="features-help">
+                        Fast / performs well
+                    </label>
+                    <label for="feature-value">
+                        <input type="checkbox" id="feature-value" name="features" value="value"
+                            aria-describedby="features-help">
+                        Good value
+                    </label>
+                    <label for="feature-support">
+                        <input type="checkbox" id="feature-support" name="features" value="support"
+                            aria-describedby="features-help">
+                        Customer support
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your Review</legend>
+
+                <div class="form-group">
+                    <label for="reviewText">Written Review (optional)
+                        <textarea id="reviewText" name="reviewText" rows="6"
+                            placeholder="Tell others about your experience..."
+                            aria-describedby="review-help"></textarea>
+                    </label>
+                    <p id="review-help" class="hint">Share details about your experience with this product</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="userName">Your Name (optional)
+                        <input type="text" id="userName" name="userName" placeholder="Full name"
+                            aria-describedby="name-help">
+                    </label>
+                    <p id="name-help" class="hint">Your name will be displayed with your review</p>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <input type="submit" value="Submit Review">
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <p>&copy; <span id="year"></span> WDD131 — Product Reviews. <a href="#">Contact</a></p>
+    </footer>
+
+    <script src="scripts/form.js"></script>
+</body>
+
+</html>

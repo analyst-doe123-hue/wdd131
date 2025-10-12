@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Thank you for submitting your product review">
+    <title>Review Submitted | Product Reviews</title>
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <h1>Thank you for your review!</h1>
+        <p class="subtitle">Your feedback helps others choose the right product.</p>
+    </header>
+
+    <main class="container review-summary" role="main">
+        <section id="summary" aria-labelledby="summary-heading"></section>
+
+        <div class="success-message" role="alert" aria-live="polite">
+            <h2 id="summary-heading">Review Submitted Successfully</h2>
+            <p>Your review has been recorded and will help other customers make informed decisions.</p>
+        </div>
+
+        <section class="counter" aria-labelledby="counter-heading">
+            <h3 id="counter-heading" class="sr-only">Review Counter</h3>
+            <p>You have submitted <strong id="reviewsCount">0</strong> review(s) from this browser.</p>
+        </section>
+
+        <div class="action-links">
+            <a href="form.html" class="btn-secondary">Submit another review</a>
+        </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <p>&copy; <span id="year2"></span> WDD131 — Product Reviews.</p>
+    </footer>
+
+    <script src="scripts/review.js"></script>
+</body>
+
+</html>
