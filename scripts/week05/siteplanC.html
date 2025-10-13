@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BuildStrong Construction — Site Plan</title>
+  <!-- Typography from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#2b2f36;       /* Dark charcoal - headings, nav */
+      --accent:#ff6a00;        /* Safety orange - buttons, accents */
+      --muted:#f4f6f8;         /* Light background */
+      --text:#222529;          /* Body text */
+      --accent-dark:#e65900;
+      --max-width:1100px;
+    }
+    /* Basic reset */
+    *{box-sizing:border-box}
+    body{font-family:'Open Sans',system-ui,Segoe UI,Roboto,Arial;line-height:1.45;color:var(--text);background:var(--muted);margin:0;padding:2rem}
+    .container{max-width:var(--max-width);margin:0 auto;background:white;padding:2rem;border-radius:10px;box-shadow:0 8px 30px rgba(43,47,54,0.07)}
+    header{display:flex;align-items:center;gap:1rem}
+    .logo{width:64px;height:64px;background:linear-gradient(135deg,var(--primary),#444);border-radius:8px;color:white;display:flex;align-items:center;justify-content:center;font-family:'Montserrat';font-weight:700}
+    h1{font-family:'Montserrat';margin:0;color:var(--primary)}
+    .muted{color:#667078;font-size:0.95rem}
+
+    nav{margin-top:1rem}
+    nav ul{display:flex;gap:1rem;padding:0;list-style:none}
+    nav a{color:var(--primary);text-decoration:none;font-weight:600}
+
+    section{margin-top:1.25rem}
+    h2{font-family:'Montserrat';color:var(--primary);margin-bottom:0.5rem}
+    p.lead{margin-top:0;color:#4b5256}
+
+    /* Info grid */
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:1.25rem}
+    .card{background:#fff;border:1px solid #eef2f4;padding:1rem;border-radius:8px}
+
+    /* Wireframe sketch boxes */
+    .wireframes{display:flex;flex-direction:column;gap:1rem}
+    .wf-mobile,.wf-desktop{border:2px dashed #dfe7ea;padding:1rem;border-radius:8px}
+    .wf-row{display:flex;gap:0.5rem;align-items:center}
+    .wf-box{background:linear-gradient(180deg,#fff,#fafafa);border:1px solid #e6eaec;height:40px;border-radius:4px;flex:1;display:flex;align-items:center;justify-content:center;color:#97a3a9;font-size:0.85rem}
+    .wf-hero{height:120px;background:#f8fbfc;border:1px solid #e2eaed;display:flex;align-items:center;justify-content:center;color:#88959a}
+
+    /* Responsive examples */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+    .feature{padding:0.75rem;border-radius:6px;border:1px solid #eef2f4}
+
+    /* Color swatches */
+    .swatches{display:flex;gap:0.5rem;align-items:center}
+    .swatch{width:64px;height:40px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .swatch-label{font-size:0.85rem;margin-left:0.5rem;color:#6b7377}
+
+    footer{margin-top:1.5rem;color:#65707a;font-size:0.9rem}
+
+    /* Small screens */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      nav ul{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">BS</div>
+      <div>
+        <h1>BuildStrong Construction</h1>
+        <div class="muted">Professional civil & construction services — responsive portfolio & contact site</div>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </nav>
+
+    <section id="overview">
+      <h2>Site Purpose</h2>
+      <p class="lead">BuildStrong Construction is a prototype company site demonstrating a professional presence for a civil and construction contractor. The site informs potential clients about services, showcases project case studies (residential, commercial, infrastructure), collects contact inquiries, and lists references for images/content.</p>
+
+      <div class="grid" style="margin-top:1rem">
+        <div>
+          <div class="card">
+            <h3>Planned Pages & Features</h3>
+            <ul>
+              <li><strong>Home</strong> — company intro, mission, services overview, testimonials.</li>
+              <li><strong>Projects</strong> — gallery of projects with category filters (residential, commercial, infrastructure), project detail modal.</li>
+              <li><strong>Contact</strong> — contact form (name, email, message), company details, embedded map, and form data saved to <code>localStorage</code> as a demo.</li>
+              <li><strong>References</strong> — list of image/content sources and attributions.</li>
+              <li><strong>Dynamic features</strong> — client-side filtering, testimonials carousel, responsive image optimization, lazy loading.</li>
+            </ul>
+          </div>
+
+          <div class="card" style="margin-top:1rem">
+            <h3>Reason for Choosing Subject</h3>
+            <p>Construction is an industry that benefits from clear visual presentation of past work. This project demonstrates HTML/CSS/JS skills while producing a practical site that could represent a real small construction company.</p>
+          </div>
+
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3>Project Timeline (est.)</h3>
+            <ol>
+              <li>Plan & wireframe — complete (this document)</li>
+              <li>Build HTML structure & CSS layout — 1–2 days</li>
+              <li>Implement JS features (filtering, localStorage, forms) — 1–2 days</li>
+              <li>Testing & optimization — 1 day</li>
+            </ol>
+            <h3 style="margin-top:0.5rem">Target Audience</h3>
+            <p class="muted">Local homeowners, small business owners, municipal clients, and potential partners looking for civil and construction services.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="scenarios">
+      <h2>Scenarios</h2>
+      <ol>
+        <li><strong>Prospective homeowner:</strong> "Can I see examples of completed residential projects similar to my renovation?" — Answered by Projects page with filter by category & project detail pages showing before/after photos.</li>
+        <li><strong>Procurement officer:</strong> "What services does BuildStrong offer and how do I contact you for a tender?" — Answered by Home (services & mission) and Contact (company details + form).</li>
+        <li><strong>Photographer/credit checker:</strong> "Where did the images come from and who needs to be credited?" — Answered by References page with clear attributions.</li>
+      </ol>
+    </section>
+
+    <section id="colors">
+      <h2>Color Schema</h2>
+      <p>Selected palette (used on this document):</p>
+      <div class="swatches" style="margin-top:0.5rem">
+        <div class="swatch" style="background:var(--primary)">#2B2F36</div>
+        <div class="swatch-label">Primary — headings, nav, footer</div>
+      </div>
+      <div class="swatches" style="margin-top:0.5rem">
+        <div class="swatch" style="background:var(--accent)">#FF6A00</div>
+        <div class="swatch-label">Accent — buttons, CTAs, highlights</div>
+      </div>
+      <div style="margin-top:0.75rem;color:#5f6a6f;font-size:0.95rem">
+        <p>Usage examples: headings and the logo use <em>Primary</em>. Buttons, active state borders, and small icon accents use <em>Accent</em>. Backgrounds and cards use muted neutrals for clean contrast.</p>
+      </div>
+    </section>
+
+    <section id="typography">
+      <h2>Typography</h2>
+      <ul>
+        <li><strong>Montserrat (Google)</strong> — headings, brand name, and prominent UI labels (weights 600/700).</li>
+        <li><strong>Open Sans (Google)</strong> — body text, captions, forms (weights 300/400/600).</li>
+      </ul>
+      <p class="muted">These fonts were chosen for a professional, readable modern look with strong heading presence and good screen readability.</p>
+    </section>
+
+    <section id="wireframe">
+      <h2>Wireframe (Home page)</h2>
+      <p>Simple visual sketches for mobile and desktop layouts. These demonstrate content ordering and relative sizes — exact spacing will be tuned during implementation.</p>
+
+      <div class="wireframes">
+        <div class="wf-mobile card">
+          <strong>Mobile (vertical)</strong>
+          <div style="margin-top:0.75rem" class="wf-hero">Hero — logo + mission (large image)</div>
+          <div class="wf-row" style="margin-top:0.5rem"><div class="wf-box" style="flex:1">Services overview</div></div>
+          <div class="wf-row" style="margin-top:0.5rem"><div class="wf-box">Featured project (carousel)</div></div>
+          <div class="wf-row" style="margin-top:0.5rem"><div class="wf-box">Testimonials</div></div>
+          <div class="wf-row" style="margin-top:0.5rem"><div class="wf-box">Contact CTA</div></div>
+        </div>
+
+        <div class="wf-desktop card">
+          <strong>Desktop (wide)</strong>
+          <div style="margin-top:0.75rem;display:grid;grid-template-columns:2fr 1fr;gap:0.5rem">
+            <div style="border:1px dashed #e3ecef;height:160px;display:flex;align-items:center;justify-content:center;color:#90a1a6">Left: Large hero / featured project</div>
+            <div style="border:1px dashed #e3ecef;height:160px;display:flex;align-items:center;justify-content:center;color:#90a1a6">Right: Quick contact + services</div>
+          </div>
+          <div style="margin-top:0.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem">
+            <div class="wf-box">Project card</div>
+            <div class="wf-box">Project card</div>
+            <div class="wf-box">Project card</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="accessibility-testing">
+      <h2>Testing & Validation</h2>
+      <ol>
+        <li>HTML validation (W3C) — ensure no structural errors.</li>
+        <li>WCAG contrast check — buttons & text against background (aim AA minimum).</li>
+        <li>Responsive checks — test at 320px, 480px, 768px, 1024px, 1440px.</li>
+        <li>Performance — compress/serve optimized images, use <code>loading="lazy"</code> for offscreen images.</li>
+        <li>SEO basics — meta tags, meaningful headings, descriptive alt attributes for images.</li>
+        <li>Form testing — client-side validation, store demo submit data to localStorage for persistence during development.</li>
+        <li>Cross-browser — Chrome, Firefox, Edge, Safari checks on desktop & mobile.</li>
+      </ol>
+    </section>
+
+    <section id="implementation-notes">
+      <h2>Implementation Notes</h2>
+      <div class="features">
+        <div class="feature">
+          <strong>Project filtering</strong>
+          <p class="muted">Client-side filtering using data attributes and JS (e.g., <code>data-category="residential"</code>), optional URL hash for sharable filters.</p>
+        </div>
+        <div class="feature">
+          <strong>LocalStorage demo</strong>
+          <p class="muted">Save contact form drafts locally and display last 5 testimonial messages. Example: save under key <code>buildstrong_contact_draft</code>.</p>
+        </div>
+        <div class="feature">
+          <strong>Images</strong>
+          <p class="muted">Use optimized JPEG/WEBP, provide 1x/2x srcset, and lazy-load. Keep production images in <code>/assets/images/projects/</code>.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:0.8rem">
+        <h3>Contact Form localStorage snippet (implementation)</h3>
+        <pre style="white-space:pre-wrap;background:#fbfbfb;padding:0.75rem;border-radius:6px;border:1px solid #eef2f4">// on input change
+const key = 'buildstrong_contact_draft';
+const form = document.querySelector('#contactForm');
+form.addEventListener('input', () =&gt; {
+  const data = {name:form.name.value,email:form.email.value,message:form.message.value};
+  localStorage.setItem(key, JSON.stringify(data));
+});
+// restore on load
+const saved = JSON.parse(localStorage.getItem(key) || 'null');
+if(saved){form.name.value=saved.name||'';form.email.value=saved.email||'';form.message.value=saved.message||''}
+</pre>
+      </div>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <p>Any external images, icons, or content used in the final site will be listed here with proper attribution and license information (Unsplash, Pexels, icon libraries). Example: "Hero photo — John Doe / Unsplash".</p>
+    </section>
+
+    <footer>
+      <div>Self-evaluation checklist: Completed site plan, color & typography applied, wireframes included, accessibility & testing items listed.</div>
+      <div style="margin-top:0.5rem">Prepared by: BuildStrong — Site Plan (W05)</div>
+    </footer>
+  </div>
+</body>
+</html>
