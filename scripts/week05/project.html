@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildRight Construction & Engineering</title>
+    <style>
+        /* Color Schema */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Arial', sans-serif;
+            color: var(--primary);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .accent {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-left: 1.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)),
+                url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 1rem auto;
+        }
+
+        .services-grid,
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card,
+        .project-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover,
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-content,
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-image {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .testimonials .section-title {
+            color: var(--white);
+        }
+
+        .testimonials .section-title:after {
+            background-color: var(--accent);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+        }
+
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--accent);
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Project Filters */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background-color: var(--white);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            nav li {
+                margin-left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Page-specific styles */
+        #home-page {
+            display: block;
+        }
+
+        #projects-page,
+        #contact-page,
+        #references-page {
+            display: none;
+        }
+
+        .page-title {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            background-color: #ddd;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        /* References page */
+        .references-list {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+
+        .references-list ul {
+            padding-left: 1.5rem;
+        }
+
+        .references-list li {
+            margin-bottom: 1rem;
+        }
+
+        .references-list a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .references-list a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-img">BR</div>
+                    <div>Build<span class="accent">Right</span> Construction</div>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+                <nav class="mobile-menu" id="mobile-menu">
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home-page">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="projects-page">Projects</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact-page">Contact</a></li>
+                        <li><a href="#" class="nav-link" data-page="references-page">References</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <main id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Building Your Vision, Right From The Start</h1>
+                <p>With over 15 years of experience, BuildRight Construction delivers exceptional residential,
+                    commercial, and infrastructure projects with precision and quality.</p>
+                <a href="#" class="btn nav-link" data-page="contact-page">Get a Free Quote</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <div class="service-content">
+                            <h3>Residential Construction</h3>
+                            <p>Custom homes, renovations, and residential developments built to the highest standards of
+                                quality and craftsmanship.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <div class="service-content">
+                            <h3>Commercial Construction</h3>
+                            <p>Office buildings, retail spaces, and commercial facilities designed for functionality,
+                                efficiency, and aesthetic appeal.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛣️</div>
+                        <div class="service-content">
+                            <h3>Infrastructure Projects</h3>
+                            <p>Bridges, roads, and public works projects that serve communities with durability and
+                                engineering excellence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="featured-projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image"
+                            style="background-image: url('https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        </div>
+                        <div class="project-content">
+                            <h3>Modern Office Complex</h3>
+                            <p>A state-of-the-art commercial building with sustainable features and modern design.</p>
+                            <a href="#" class="nav-link" data-page="projects-page">View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"
+                            style="background-image: url('https://images.unsplash.com/photo-1600585154340-6f03e0d2815a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        </div>
+                        <div class="project-content">
+                            <h3>Luxury Residential Estate</h3>
+                            <p>Custom-designed homes with premium finishes and attention to detail.</p>
+                            <a href="#" class="nav-link" data-page="projects-page">View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"
+                            style="background-image: url('https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        </div>
+                        <div class="project-content">
+                            <h3>Community Bridge Project</h3>
+                            <p>A durable infrastructure project connecting communities with safety and reliability.</p>
+                            <a href="#" class="nav-link" data-page="projects-page">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="#" class="btn nav-link" data-page="projects-page">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial active">
+                        <p class="testimonial-text">"BuildRight Construction delivered our commercial project on time
+                            and within budget. Their attention to detail and professionalism was exceptional."</p>
+                        <p class="testimonial-author">- Sarah Johnson, Commercial Developer</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"We couldn't be happier with our custom home. The team at BuildRight
+                            listened to our needs and created exactly what we envisioned."</p>
+                        <p class="testimonial-author">- Michael and Lisa Thompson, Homeowners</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The infrastructure project was completed with minimal disruption to
+                            our community. BuildRight's engineers solved complex challenges efficiently."</p>
+                        <p class="testimonial-author">- City Planning Department</p>
+                    </div>
+                    <div class="testimonial-controls">
+                        <div class="testimonial-dot active" data-index="0"></div>
+                        <div class="testimonial-dot" data-index="1"></div>
+                        <div class="testimonial-dot" data-index="2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Projects Page -->
+    <main id="projects-page">
+        <div class="container">
+            <h1 class="page-title">Our Projects</h1>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            </div>
+            <div class="projects-grid" id="projects-container">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Page -->
+    <main id="contact-page">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>We'd love to hear about your project and discuss how we can help bring your vision to life.</p>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Our Office</h3>
+                            <p>123 Construction Avenue<br>Building City, BC 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@buildrightconstruction.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type" class="form-control">
+                                <option value="">Select a project type</option>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="infrastructure">Infrastructure</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="map-placeholder">
+                <p>Interactive Map Would Appear Here</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- References Page -->
+    <main id="references-page">
+        <div class="container">
+            <h1 class="page-title">Content References</h1>
+            <div class="references-list">
+                <p>This website uses images and content from the following sources:</p>
+                <ul>
+                    <li>Hero image: <a
+                            href="https://unsplash.com/photos/crane-and-buildings-during-daytime-1504307651254-35680f356dfd"
+                            target="_blank">Unsplash - Construction Site</a></li>
+                    <li>Office building image: <a
+                            href="https://unsplash.com/photos/white-and-brown-concrete-building-1513584684374-8bab748fbf90"
+                            target="_blank">Unsplash - Modern Office Building</a></li>
+                    <li>Residential home image: <a
+                            href="https://unsplash.com/photos/brown-and-white-wooden-house-1600585154340-6f03e0d2815a"
+                            target="_blank">Unsplash - Luxury Home</a></li>
+                    <li>Bridge image: <a
+                            href="https://unsplash.com/photos/a-bridge-over-a-body-of-water-1576675466969-38eeae4b41f6"
+                            target="_blank">Unsplash - Bridge Infrastructure</a></li>
+                    <li>Additional project images from <a href="https://unsplash.com" target="_blank">Unsplash</a></li>
+                    <li>Company information and service descriptions created specifically for BuildRight Construction
+                    </li>
+                    <li>Testimonials are fictional and created for demonstration purposes</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Build<span class="accent">Right</span> Construction</div>
+                    <p>Building excellence with integrity, quality, and innovation since 2005.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home-page">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="projects-page">Projects</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact-page">Contact</a></li>
+                        <li><a href="#" class="nav-link" data-page="references-page">References</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p>123 Construction Avenue<br>Building City, BC 12345</p>
+                    <p>Phone: (555) 123-4567<br>Email: info@buildrightconstruction.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 BuildRight Construction & Engineering. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Project data
+        const projects = [
+            {
+                id: 1,
+                title: "Modern Office Complex",
+                category: "commercial",
+                image: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "A state-of-the-art commercial building with sustainable features and modern design.",
+                details: "This 12-story office complex features energy-efficient systems, modern amenities, and flexible workspace designs."
+            },
+            {
+                id: 2,
+                title: "Luxury Residential Estate",
+                category: "residential",
+                image: "https://images.unsplash.com/photo-1600585154340-6f03e0d2815a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "Custom-designed homes with premium finishes and attention to detail.",
+                details: "Five luxury homes featuring custom architectural designs, high-end materials, and smart home technology."
+            },
+            {
+                id: 3,
+                title: "Community Bridge Project",
+                category: "infrastructure",
+                image: "https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "A durable infrastructure project connecting communities with safety and reliability.",
+                details: "This 250-foot bridge features advanced engineering for earthquake resistance and long-term durability."
+            },
+            {
+                id: 4,
+                title: "Downtown Retail Center",
+                category: "commercial",
+                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "A vibrant shopping destination with modern storefronts and community spaces.",
+                details: "This retail center includes 25 storefronts, food court, and outdoor gathering spaces."
+            },
+            {
+                id: 5,
+                title: "Suburban Housing Development",
+                category: "residential",
+                image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "A family-friendly community with thoughtfully designed homes and amenities.",
+                details: "50 single-family homes with community park, playground, and walking trails."
+            },
+            {
+                id: 6,
+                title: "Highway Expansion Project",
+                category: "infrastructure",
+                image: "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                description: "Road expansion to improve traffic flow and transportation efficiency.",
+                details: "Added two lanes to a 5-mile stretch of highway, including new interchanges and safety features."
+            }
+        ];
+
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('main');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectsContainer = document.getElementById('projects-container');
+        const contactForm = document.getElementById('contact-form');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
+
+                // Hide all pages
+                pages.forEach(page => {
+                    page.style.display = 'none';
+                });
+
+                // Show target page
+                document.getElementById(targetPage).style.display = 'block';
+
+                // Close mobile menu if open
+                mobileMenu.classList.remove('active');
+
+                // Save current page to localStorage
+                localStorage.setItem('currentPage', targetPage);
+            });
+        });
+
+        // Load projects
+        function loadProjects(filter = 'all') {
+            projectsContainer.innerHTML = '';
+
+            const filteredProjects = filter === 'all'
+                ? projects
+                : projects.filter(project => project.category === filter);
+
+            filteredProjects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card';
+                projectCard.innerHTML = `
+                    <div class="project-image" style="background-image: url('${project.image}')"></div>
+                    <div class="project-content">
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <button class="btn view-details" data-id="${project.id}">View Details</button>
+                    </div>
+                `;
+                projectsContainer.appendChild(projectCard);
+            });
+
+            // Add event listeners to detail buttons
+            document.querySelectorAll('.view-details').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const projectId = parseInt(e.target.getAttribute('data-id'));
+                    showProjectDetails(projectId);
+                });
+            });
+        }
+
+        // Show project details
+        function showProjectDetails(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (project) {
+                alert(`${project.title}\n\n${project.details}`);
+            }
+        }
+
+        // Project filtering
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Filter projects
+                const filter = btn.getAttribute('data-filter');
+                loadProjects(filter);
+            });
+        });
+
+        // Testimonial slider
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+
+                // Hide all testimonials
+                testimonials.forEach(testimonial => {
+                    testimonial.classList.remove('active');
+                });
+
+                // Remove active class from all dots
+                testimonialDots.forEach(d => {
+                    d.classList.remove('active');
+                });
+
+                // Show selected testimonial
+                testimonials[index].classList.add('active');
+                dot.classList.add('active');
+            });
+        });
+
+        // Auto-rotate testimonials
+        let currentTestimonial = 0;
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+
+            // Hide all testimonials
+            testimonials.forEach(testimonial => {
+                testimonial.classList.remove('active');
+            });
+
+            // Remove active class from all dots
+            testimonialDots.forEach(d => {
+                d.classList.remove('active');
+            });
+
+            // Show current testimonial
+            testimonials[currentTestimonial].classList.add('active');
+            testimonialDots[currentTestimonial].classList.add('active');
+        }, 5000);
+
+        // Contact form handling
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                projectType: document.getElementById('project-type').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Save to localStorage
+            saveFormData(formData);
+
+            // Show success message
+            alert('Thank you for your message! We will get back to you soon.');
+
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Save form data to localStorage
+        function saveFormData(formData) {
+            let submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+            submissions.push(formData);
+            localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+        }
+
+        // Initialize page
+        function init() {
+            // Load saved page from localStorage or default to home
+            const savedPage = localStorage.getItem('currentPage') || 'home-page';
+            document.getElementById(savedPage).style.display = 'block';
+
+            // Load projects
+            loadProjects();
+        }
+
+        // Initialize the application
+        init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse our portfolio of residential, commercial, and infrastructure construction projects">
+    <title>Our Projects | BuildRight Construction & Engineering</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="BuildRight Construction Logo" width="50" height="50">
+                    <div>Build<span class="accent">Right</span> Construction</div>
+                </a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+                <nav class="mobile-menu" id="mobile-menu">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="references.html" class="nav-link">References</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="projects-page">
+        <div class="container">
+            <h1 class="page-title">Our Projects</h1>
+            <p class="page-subtitle">Browse our portfolio of completed construction projects across residential,
+                commercial, and infrastructure categories.</p>
+
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            </div>
+
+            <div class="projects-grid" id="projects-container">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Build<span class="accent">Right</span> Construction</div>
+                    <p>Building excellence with integrity, quality, and innovation since 2005.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="references.html">References</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p>144 Wetende Avenue<br>Kakamega City, BC 50105</p>
+                    <p>Phone: +254-713-935-610<br>Email: info@buildrightconstruction.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 BuildRight Construction & Engineering. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/projects.js"></script>
+</body>
+
+</html>
